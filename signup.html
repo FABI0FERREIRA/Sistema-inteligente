@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(180deg, #add8e6, #87ceeb, #4682b4);
+        }
+        form {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border: 1px solid #6495ED;
+            background: linear-gradient(180deg, #add8e6, #87ceeb, #4682b4);
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #B0C4DE;
+            background-color: #6495ED;;
+        }
+         h2 {
+         font-weight: normal;
+         font-family: Arial, sans-serifl;
+         text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="/register" method="post">
+        <h2>Cadastro</h2>
+        <input type="text" name="name" placeholder="Nome" required><br>
+        <input type="text" name="phone" placeholder="Nunmero" required><br>
+        <input type="email" name="email" placeholder="E-mail" required><br>
+        <input type="password" name="password" placeholder="Senha" required><br>
+        <input type="submit" value="Cadastrado">
+
+    </form>
+</body>
+</html>

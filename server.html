@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  <title>Home</title>
+  <style>
+    body {
+      background-color: #f0f8ff; /* Azul bem suave */
+    }
+    .figura {
+      border-radius: 20px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      font-size: 3rem; /* Tamanho maior */
+      text-align: center; /* Centralizado */
+    }
+    .celular {
+      color: navy; /* Azul marinho */
+    }
+    .laptop {
+      color: #9acd32; /* Amarelo esverdeado */
+    }
+    .camera {
+      color: #ffcccb; /* Vermelho suave */
+    }
+    .icon p {
+      text-align: justify; /* Justificado */
+      margin: 0;
+    }
+    .form-termos {
+      margin-top: 30px;
+    }
+    .form-termos-text {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/server">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/fotos">Fotos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Contatos">Contato</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="figura">
+    <h1 class="text-center">Passo a Passo para Cadastrar no Sistema</h1>
+    <div class="row justify-content-center"> <!-- Centralizado -->
+      <div class="col-md-4 text-center">
+        <i class="bi bi-camera icon camera"></i>
+        <p class="text-center">Tire foto do próprio rosto. Serão necessárias 100 fotos.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-laptop icon laptop"></i>
+        <p class="text-center">Anexe campo fotos ao nosso sistema com seu nome.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-camera-video icon celular"></i>
+        <p class="text-center">Após 24 horas, estará dentro do sistema de sua porta ou casa.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="figura">
+    <h2 class="text-center">Cadastrar Objeto</h2>
+    <div class="row justify-content-center"> <!-- Centralizado -->
+      <div class="col-md-4 text-center">
+        <i class="bi bi-camera icon camera"></i>
+        <p class="text-center">Tire foto do objeto a ser cadastrado no seu nome. Serão necessárias 100 fotos.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-laptop icon laptop"></i>
+        <p class="text-center">Anexe campo fotos ao nosso sistema com seu nome.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-camera-video icon celular"></i>
+        <p class="text-center">Após 24 horas, estará dentro do sistema de sua porta ou casa.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Texto dos termos de uso
+  var termosDeUso = `
+      Estes termos regem a utilização de imagens e dados pessoais conforme estipulado pela Lei Geral de Proteção de Dados (LGPD). Ao concordar com estes termos, você consente com a utilização de suas imagens e dados pessoais conforme descrito abaixo:
+
+    1. Consentimento para Utilização de Imagens e Dados Pessoais:
+    Ao fornecer suas imagens e dados pessoais, você concede consentimento explícito para que nós, [nome da empresa/organização], utilizemos essas informações conforme necessário para os fins descritos nestes termos.
+
+    2. Finalidade da Utilização de Imagens e Dados Pessoais:
+    As imagens e dados pessoais fornecidos serão utilizados exclusivamente para os seguintes fins:
+      - Identificação em registros e sistemas internos da empresa/organização.
+      - Fins de segurança, como controle de acesso e monitoramento.
+      - Fins de comunicação interna e externa, como publicidade e marketing.
+      - Cumprimento de obrigações legais e regulatórias.
+
+    3. Compartilhamento de Imagens e Dados Pessoais:
+    para saber mais acesse "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+`;
+
+  // Função para verificar se o usuário já concordou com os termos anteriormente
+  function verificarConcordanciaAnterior() {
+    var concordouAnteriormente = localStorage.getItem('concordou');
+    if (concordouAnteriormente === 'sim') {
+      liberarPagina();
+    } else {
+      exibirTermos();
+    }
+  }
+
+  // Função para exibir os termos de uso em um alerta
+  function exibirTermos() {
+    window.alert(termosDeUso);
+    verificarConcordancia();
+  }
+
+  // Função para liberar a página
+  function liberarPagina() {
+    // Adicione aqui qualquer lógica necessária para liberar a página
+    console.log('Página liberada!');
+  }
+
+  // Função para verificar se o usuário concorda com os termos
+  function verificarConcordancia() {
+    var concorda = window.confirm('Você concorda com os termos de uso?');
+    if (concorda) {
+      localStorage.setItem('concordou', 'sim');
+      liberarPagina();
+    } else {
+      localStorage.setItem('concordou', 'nao');
+      // Adicione aqui qualquer lógica necessária para bloquear a página
+      console.log('Página bloqueada!');
+    }
+  }
+
+  // Adiciona um event listener para verificar se o usuário já concordou com os termos anteriormente
+  window.addEventListener('load', function() {
+    verificarConcordanciaAnterior();
+  });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">-->
+<!--  <title>Home</title>-->
+<!--  <style>-->
+<!--    body {-->
+<!--      background-color: #f0f8ff; /* Azul bem suave */-->
+<!--    }-->
+<!--    .figura {-->
+<!--      border-radius: 20px;-->
+<!--      margin: 10px;-->
+<!--      padding: 20px;-->
+<!--      background-color: #fff;-->
+<!--      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--    }-->
+<!--    .icon {-->
+<!--      font-size: 3rem; /* Tamanho maior */-->
+<!--      text-align: center; /* Centralizado */-->
+<!--    }-->
+<!--    .celular {-->
+<!--      color: navy; /* Azul marinho */-->
+<!--    }-->
+<!--    .laptop {-->
+<!--      color: #9acd32; /* Amarelo esverdeado */-->
+<!--    }-->
+<!--    .camera {-->
+<!--      color: #ffcccb; /* Vermelho suave */-->
+<!--    }-->
+<!--    .icon p {-->
+<!--      text-align: justify; /* Justificado */-->
+<!--      margin: 0;-->
+<!--    }-->
+<!--    .form-termos {-->
+<!--      margin-top: 30px;-->
+<!--    }-->
+<!--    .form-termos-text {-->
+<!--      background-color: #f0f0f0;-->
+<!--      padding: 20px;-->
+<!--      border-radius: 10px;-->
+<!--    }-->
+
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--  <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--    <ul class="navbar-nav">-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/server">Home</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/fotos">Fotos</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/Contatos">Contato</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<!--<div class="container">-->
+<!--  <div class="figura">-->
+<!--    <h1 class="text-center">Passo a Passo para Cadastrar no Sistema</h1>-->
+<!--    <div class="row justify-content-center"> &lt;!&ndash; Centralizado &ndash;&gt;-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-camera icon camera"></i>-->
+<!--        <p class="text-center">Tire foto do próprio rosto. Serão necessárias 100 fotos.</p>-->
+<!--      </div>-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-laptop icon laptop"></i>-->
+<!--        <p class="text-center">Anexe campo fotos ao nosso sistema com seu nome.</p>-->
+<!--      </div>-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-camera-video icon celular"></i>-->
+<!--        <p class="text-center">Após 24 horas, estará dentro do sistema de sua porta ou casa.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="figura">-->
+<!--    <h2 class="text-center">Casdastrar Objeto</h2>-->
+<!--    <div class="row justify-content-center"> &lt;!&ndash; Centralizado &ndash;&gt;-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-camera icon camera"></i>-->
+<!--        <p class="text-center">Tire foto do objeto a ser cadastrado no seu nome. Serão necessárias 100 fotos.</p>-->
+<!--      </div>-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-laptop icon laptop"></i>-->
+<!--        <p class="text-center">Anexe campo fotos ao nosso sistema com seu nome.</p>-->
+<!--      </div>-->
+<!--      <div class="col-md-4 text-center">-->
+<!--        <i class="bi bi-camera-video icon celular"></i>-->
+<!--        <p class="text-center">Após 24 horas, estará dentro do sistema de sua porta ou casa.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--  &lt;!&ndash; Nova seção &ndash;&gt;-->
+<!--  <div class="container">-->
+<!--    <div class="row justify-content-center"> &lt;!&ndash; Centralizado &ndash;&gt;-->
+<!--      <div class="col-md-6">-->
+<!--        <div class="figura form-termos"> &lt;!&ndash; Centralizado &ndash;&gt;-->
+<!--          <div class="form-termos-text">-->
+<!--            <h2 class="text-center">Termos de Uso para Utilização de Imagens e Dados Pessoais</h2>-->
+<!--            <p>Estes termos regem a utilização de imagens e dados pessoais conforme estipulado pela Lei Geral de Proteção de Dados (LGPD). Ao concordar com estes termos, você consente com a utilização de suas imagens e dados pessoais conforme descrito abaixo:</p>-->
+<!--            <ol>-->
+<!--              <li><strong>Consentimento para Utilização de Imagens e Dados Pessoais</strong><br>Ao fornecer suas imagens e dados pessoais, você concede consentimento explícito para que nós, [nome da empresa/organização], utilizemos essas informações conforme necessário para os fins descritos nestes termos.</li>-->
+<!--              <li><strong>Finalidade da Utilização de Imagens e Dados Pessoais</strong><br>As imagens e dados pessoais fornecidos serão utilizados exclusivamente para os seguintes fins:-->
+<!--                <ul>-->
+<!--                  <li>Identificação em registros e sistemas internos da empresa/organização.</li>-->
+<!--                  <li>Fins de segurança, como controle de acesso e monitoramento.</li>-->
+<!--                  <li>Fins de comunicação interna e externa, como publicidade e marketing.</li>-->
+<!--                  <li>Cumprimento de obrigações legais e regulatórias.</li>-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li><strong>Compartilhamento de Imagens e Dados Pessoais</strong><br>Suas imagens e dados pessoais não serão compartilhados, vendidos ou divulgados a terceiros sem o seu consentimento expresso, exceto nos casos em que for exigido por lei ou autoridade competente.</li>-->
+<!--              <li><strong>Armazenamento e Segurança</strong><br>Todas as imagens e dados pessoais serão armazenados de forma segura em conformidade com os requisitos da LGPD e outras regulamentações aplicáveis. Faremos todos os esforços razoáveis para proteger suas informações contra acesso não autorizado, uso indevido ou divulgação.</li>-->
+<!--              <li><strong>Direitos do Titular dos Dados</strong><br>Como titular dos dados, você tem o direito de solicitar acesso, correção, exclusão ou portabilidade de suas informações pessoais. Para exercer esses direitos ou para qualquer dúvida relacionada à privacidade e proteção de dados, entre em contato conosco através dos meios de contato fornecidos no final destes termos.</li>-->
+<!--              <li><strong>Consentimento e Revogação</strong><br>Ao concordar com estes termos, você confirma que leu e compreendeu nossas práticas de privacidade relacionadas ao uso de suas imagens e dados pessoais. Você tem o direito de revogar seu consentimento a qualquer momento, mediante solicitação por escrito.</li>-->
+<!--              <li><strong>Alterações nos Termos</strong><br>Reservamo-nos o direito de revisar ou modificar estes termos a qualquer momento, conforme necessário para cumprir com as leis e regulamentos aplicáveis. Todas as alterações serão efetivas imediatamente após a publicação dos termos revisados em nosso website ou por outros meios de comunicação adequados.</li>-->
+<!--            </ol>-->
+<!--            <p>Ao concordar com estes termos, você reconhece que está ciente de seus direitos e responsabilidades em relação à utilização de suas imagens e dados pessoais. Se você não concordar com qualquer parte destes termos, por favor, não forneça suas informações pessoais.</p>-->
+<!--            <div class="form-group">-->
+<!--              <label for="concordo">Concordo:</label>-->
+<!--              <select class="form-control" id="concordo">-->
+<!--                <option value="sim">Sim</option>-->
+<!--                <option value="nao">Não</option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--  <title>fotos</title>-->
+<!--  <style>-->
+<!--      body{-->
+<!--        background-color: linear-gradient(180deg, #add8e6, #87ceeb, #4682b4);-->
+<!--      }-->
+
+
+
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--  <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--    <ul class="navbar-nav">-->
+<!--       <li class="nav-item">-->
+<!--        <a class="nav-link" href="/server">Server</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/fotos">Fotos</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/Contatos">Contato</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+
+
+
+
+
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>Filmagen</title>-->
+<!--  <style>-->
+<!--    .navbar-container {-->
+<!--      background-color: white;-->
+<!--    }-->
+<!--    .navbar {-->
+<!--      overflow: hidden;-->
+<!--      background-color: #333;-->
+<!--    }-->
+<!--    .navbar a {-->
+<!--      float: left;-->
+<!--      display: block;-->
+<!--      color: #f2f2f2;-->
+<!--      text-align: center;-->
+<!--      padding: 14px 20px;-->
+<!--      text-decoration: none;-->
+<!--    }-->
+<!--    .navbar a:hover {-->
+<!--      background-color: #ddd;-->
+<!--      color: black;-->
+<!--    }-->
+<!--    .navbar-right {-->
+<!--      float: right;-->
+<!--    }-->
+<!--    .user-profile {-->
+<!--      float: right;-->
+<!--      padding: 14px 20px;-->
+<!--    }-->
+<!--    .user-profile img {-->
+<!--      width: 30px;-->
+<!--      height: 30px;-->
+<!--      border-radius: 50%;-->
+<!--      margin-right: 10px;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="navbar-container">-->
+<!--  <div class="navbar">-->
+<!--    <a href="/server">Home</a>-->
+<!--    <a href="/fotos">Fotos</a>-->
+<!--    <a href="/Contatos">Contato</a>-->
+<!--    <div class="navbar-right">-->
+<!--      <div class="user-profile">-->
+<!--        <img src="user_profile_picture.jpg" alt="User Profile Picture">-->
+<!--        <span>Bem-vindo, <strong>{{ name1 }}</strong></span>-->
+<!--      </div>-->
+<!--      <a href="/login"><img src="img1.png" alt="Login Icon"></a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
